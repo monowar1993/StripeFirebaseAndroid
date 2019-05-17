@@ -66,6 +66,7 @@ exports.stripeChargeCallable = functions.https.onCall((data, context) => {
     const token = data.token_id;
     const amount = data.amount;
     const currency = data.currency;
+    const description = data.description;
 
     // console.log(`tokenId ${token}`)
     // console.log(`amount ${amount}`)
@@ -75,7 +76,7 @@ exports.stripeChargeCallable = functions.https.onCall((data, context) => {
     return stripe.charges.create({
         'amount': amount,
         'currency': currency,
-        'description': 'Pocktor Payment',
+        'description': description,
         'source': token,
     }).then(charge => {
         console.log(charge)

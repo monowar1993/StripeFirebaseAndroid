@@ -1,5 +1,6 @@
 package com.stripefirebase.android
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -10,12 +11,11 @@ import com.stripe.android.model.Card
 import com.stripe.android.model.Token
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_add_card.*
-import kotlinx.android.synthetic.main.content_add_card.*
 
 class AddCardActivity : AppCompatActivity() {
 
     companion object {
-        const val TAG = "AddCardActivity"
+        private const val TAG = "AddCardActivity"
     }
 
     private val stripe by lazy { Stripe(applicationContext, BuildConfig.STRIPE_PUBLISHABLE_KEY) }
@@ -48,6 +48,9 @@ class AddCardActivity : AppCompatActivity() {
             override fun onSuccess(token: Token) {
                 progressDialog.dismiss()
                 Log.d(TAG, "Token Id - ${token.id}")
+                startActivity(Intent(this@AddCardActivity, PaymentActivity::class.java).apply {
+                    putExtra(PaymentActivity.EXTRA_TOKEN_ID_KEY, token.id)
+                })
             }
 
             override fun onError(error: Exception) {

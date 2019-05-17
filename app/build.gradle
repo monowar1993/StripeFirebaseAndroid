@@ -55,6 +55,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
+    implementation 'com.google.firebase:firebase-functions:17.0.0'
+
     implementation 'com.stripe:stripe-android:9.0.0'
 
     implementation 'com.github.d-max:spots-dialog:1.1@aar'
