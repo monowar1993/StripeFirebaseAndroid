@@ -42,6 +42,20 @@
             tools:text="Hello World!" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRetrieveToken"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
+            android:text="Retrieve Stripe Token"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            app:layout_constraintBottom_toTopOf="@+id/btnPay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPay"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
@@ -49,7 +63,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
-            android:text="Pay"
+            android:text="Pay(Stripe Charge API)"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
